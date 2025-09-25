@@ -31,7 +31,7 @@ def health():
 
 @app.post("/tts", dependencies=[Depends(verify_auth)])
 def tts(request: TTSRequest):
-    output_file = f"audio_{uuid.uuid4().hex}.wav"
+    output_file = f"/tmp/audio_{uuid.uuid4().hex}.wav"
 
     cmd = [
         "python", "python-clients/scripts/tts/talk.py",
