@@ -80,7 +80,7 @@ def tts_v2(req: TTSV2Request):
         "Content-Type": "application/json",
     }
 
-    resp = requests.post(CF_API_BASE, json=payload, stream=True)
+    resp = requests.post(url=CF_API_BASE, json=payload, stream=True, headers=headers)
     if resp.status_code != 200:
         raise HTTPException(
             status_code=500,
